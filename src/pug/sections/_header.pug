@@ -1,0 +1,33 @@
+include ./../mixins/_mixin.pug
+
+-
+  const menu = [
+    {title: 'Каталог',   link: '#'},
+    {title: 'Портфолио', link: '#'},
+    {title: 'Материалы', link: '#'},
+    {title: 'Вопросы',   link: '#'},
+    {title: 'Контакты',  link: '#'},
+  ]
+
+header.header
+  .container 
+    .header__box
+      picture
+        source(media="(max-width: 1200px)", srcset="img/logo-mobile.png") 
+        img.header__logo(src="img/logo.png", alt="logo")
+      nav.header__nav 
+        ul.header-menu 
+          each item in menu
+            li.header-menu__item 
+              a.header-menu__link(href=item.link)= item.title 
+      .header-contacts
+        a.header-contacts__link(href="#")
+          img(src="img/icons/icon-wh.png", alt="whatsapp") 
+        a.header-contacts__link(href="#")
+          img(src="img/icons/icon-tg.png", alt="telegram") 
+        .header-phones
+          img.header-phones__icon(src="img/icons/icon-phone.png", alt="phone")
+          .header-phones__numbers
+            a.header-phones__num(href="tel:89897175651") +7 (989) 717-56-51  
+            a.header-phones__num(href="tel:89888937697") +7 (988) 893-76-97
+            button.header-phones__ordercall Перезвоните мне

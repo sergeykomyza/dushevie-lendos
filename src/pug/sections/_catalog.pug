@@ -1,0 +1,30 @@
+-
+  const catalog = [
+    {name: 'Нестандартное', price: '44900'},
+    {name: 'Ограждение гармошка', price: '42900'},
+    {name: 'Полутрапеции', price: '37900'},
+    {name: 'Раздвижное ограждение', price: '37900'},
+    {name: 'Раздвижные углы', price: '34900'},
+    {name: 'Распашное ограждение', price: '39900'},
+    {name: 'Распашные углы', price: '48900'},
+    {name: 'Трапеции', price: '47900'},
+    {name: 'Углы гармошка', price: '49900'},
+  ]
+
+section.catalog 
+  .container 
+    .catalog__titlebox 
+      h2.title.catalog__title Каталог
+      .correction 
+        span.correction__text Нет нужного?
+        button.correction__ordercall Заказать звонок
+    .catalog__box 
+      each item, i in catalog 
+        article.product 
+          img.product__foto(src=`img/catalog-${i}.jpg`, alt="foto" loading="lazy")
+          .product__bottom
+            .product__info
+              h6.product__name= item.name 
+              span.product__price от !{item.price} руб
+            button.product__btn
+              img(src="img/icons/icon-cart.png", alt="icon-cart")

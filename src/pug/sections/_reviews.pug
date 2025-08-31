@@ -1,0 +1,41 @@
+-
+  const reviews = [
+    {ava: 'ava-0.png', name: 'Александр Лукаш', date: '3 августа 2025г.'},
+    {ava: 'ava-1.png', name: 'Иван',            date: '1 августа 2025г.'},
+    {ava: 'ava-0.png', name: 'Александр Лукаш', date: '3 августа 2025г.'},
+    {ava: 'ava-1.png', name: 'Иван',            date: '1 августа 2025г.'},
+    {ava: 'ava-0.png', name: 'Александр Лукаш', date: '3 августа 2025г.'},
+  ]
+
+section.reviews 
+
+  .container 
+
+    h2.title.reviews__title Отзывы
+
+    a.reviews-link(href="#" target="_blank")
+      span.reviews-link__text Все отзывы
+      .reviews-rating 
+        img.reviews-rating__icon(src="img/icons/icon-yandex.png", alt="yandex-icon")
+        | 5.0
+
+    .reviews__sliderbox 
+      .reviews-slider.swiper.js-sliderReviews 
+        .swiper-wrapper 
+          each item, i in reviews 
+            .swiper-slide 
+              .review
+                .review__head 
+                  img.review__avatar(src=`img/${item.ava}`, alt="avatar")
+                  .review__info 
+                    img.review__rating(src="img/stars.png", alt="stars")
+                    h6.review__name= item.name
+                    time.review__date(datetime="2025-08-03")= item.date 
+                .review__content
+                  | Заказал себе душевую с нестандартными размерами. Думал ничего не выйдет, но ребята оказались профессионалами. Все замерили, подсказали как будет лучше и удобнее. Просчитали и что самое важное, все смонтировали в срок. Рекомендую!
+                a.review__link(href="#") Отзыв из Яндекса
+      button.slider-navbtn.reviews-prev.js-reviewsPrev
+        img(src="img/icons/icon-slider-prev.png", alt="icon")
+      .swiper-pagination.reviews-pagination.js-paginationReviews
+      button.slider-navbtn.reviews-next.js-reviewsNext
+        img(src="img/icons/icon-slider-next.png", alt="icon")

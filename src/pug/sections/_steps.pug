@@ -1,0 +1,46 @@
+-
+  const stepsGallery = [
+    'stages-1.webp',
+    'stages-2.webp',
+    'stages-3.webp',
+    'stages-4.webp',
+    'stages-5.webp',
+    'stages-6.webp'
+  ]
+  const steps = [
+    {title: 'Предварительный расчет', text: 'На основании вашего заказа мы составляем для вас предварительный расчет'},
+    {title: 'Замер',                  text: 'Наш специалист приедет в удобное для вас время и произведет необходимые замеры'},
+    {title: 'Заказ и оплата',         text: 'После замера мы оформляем ваш заказ, вы производите оплату'},
+    {title: 'Производство',           text: 'Под ваш заказ мы изготавливаем изделия в соответствии с вашими пожеланиями'},
+    {title: 'Доставка и монтаж',      text: 'Наша профессиональная бригада доставит и смонтирует перегородки быстро и качественно'},
+  ]
+
+section.steps 
+
+  .container 
+
+    .steps__box 
+      .steps__gallery
+        .steps-thumbs
+          each item in stepsGallery
+            img(src=`img/${item}`, alt="@")
+        .steps-sliderbox
+          .swiper.steps-slider.js-sliderSteps 
+            .swiper-wrapper 
+              .swiper-slide
+                img.steps-sliderfoto(src="img/stages-0.webp", alt="@")
+              .swiper-slide 
+                img.steps-sliderfoto(src="img/case-1.webp", alt="@")
+
+      .steps__info
+        h2.title.steps__title Этапы работы
+        ul.steps-list 
+          each item, i in steps 
+            li.step(class=`step-${i+1}`) 
+              .step__num !{i+1}
+              .step__info 
+                h6.step__name= item.title 
+                p.step__text= item.text
+        .warranty 
+          img.warranty__icon(src="img/icons/icon-maintenance-documents.png", alt="icon")
+          p.warranty__info Обеспечиваем #[br] #[a(href="#") гарантийное и постгарантийное обслуживание]

@@ -1,0 +1,34 @@
+section.present 
+  .container 
+    .present__box
+      .present__info 
+        h1.present__title 
+          | изготовление душевых кабин #[br] #[span.present__title--black по индивидуальным размерам]
+        p.present__text Производим душевые кабины и перегородки из закаленного стекла по вашим размерам, пожеланиями под ваше помещение.
+        .present-price 
+          button.present-price__btn.price-btn Узнать стоимость
+          span.present-price__info Бесплатно просчитаем #[br] с учетом ваших пожеланий
+        .present-advantages
+          .present-advantages__item 
+            img.present-advantages__icon(src="img/icons/icon-advantages-0.png", alt="icon-advantages")
+            span.present-advantages__text Больше 1000 #[span.present-advantages__text--blue реализованных проектов]
+          .present-advantages__item 
+            img.present-advantages__icon(src="img/icons/icon-advantages-1.png", alt="icon-advantages")
+            span.present-advantages__text Используем только #[span.present-advantages__text--blue качественные комплектующие]
+          .present-advantages__item 
+            img.present-advantages__icon(src="img/icons/icon-advantages-2.png", alt="icon-advantages")
+            span.present-advantages__text Индивидуальные #[span.present-advantages__text--blue размеры и проекты]
+          .present-advantages__item 
+            img.present-advantages__icon(src="img/icons/icon-advantages-3.png", alt="icon-advantages")
+            span.present-advantages__text Доступна #[span.present-advantages__text--blue рассрочка]
+      .present__gallery
+        .present-sliderbox
+          .swiper.present-slider.js-sliderPresent 
+            .swiper-wrapper 
+              .swiper-slide
+                img.present-sliderfoto(src="img/case-0.webp", alt="@")
+              .swiper-slide 
+                img.present-sliderfoto(src="img/case-1.webp", alt="@")
+        .present-thumbs
+          each item in ['1','2','3','4','5','6']
+            img(src=`img/present-foto-${item}.webp`, alt="@")

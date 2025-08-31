@@ -1,0 +1,35 @@
+-
+  const cases = [
+    {foto: 'case-0.webp', text: 'Название душевой или ее описание со всеми нюансами или изюминками. Особенность проекта в двух словах.'},
+    {foto: 'case-1.webp', text: 'Название душевой или ее описание со всеми нюансами или изюминками. Особенность проекта в двух словах.'},
+    {foto: 'case-2.webp', text: 'Название душевой или ее описание со всеми нюансами или изюминками. Особенность проекта в двух словах.'},
+    {foto: 'case-0.webp', text: 'Название душевой или ее описание со всеми нюансами или изюминками. Особенность проекта в двух словах.'},
+  ]
+
+section.cases
+
+  .container 
+
+    .cases__titlebox 
+
+      h2.title.cases__title Портфолио
+
+      a.cases-all(href="#") Посмотреть все
+
+    .cases-sliderbox 
+      .cases-slider.swiper.js-sliderCases 
+        .swiper-wrapper 
+          each item, i in cases 
+            .swiper-slide 
+              .case 
+                img.case__foto(src=`img/${item.foto}`, alt="@")
+                .case__text= item.text
+      .cases__nav
+        button.slider-navbtn.cases-prev.js-casesPrev
+          img(src="img/icons/icon-slider-prev.png", alt="icon")
+        .swiper-pagination.cases-pagination.js-paginationCases
+        button.slider-navbtn.cases-next.js-casesNext
+          img(src="img/icons/icon-slider-next.png", alt="icon")
+    .cases__priceinfo
+      button.price-btn.cases__btn Узнать стоимость
+    p.cases__infotext Бесплатно просчитаем #[br] с учетом ваших пожеланий
