@@ -32,6 +32,10 @@
     &__link{
       font-family: var(--font-bold);
       font-size: 17px;
+      transition: color 0.3s;
+      &:hover{
+        color: var(--color-blue);
+      }
     }
   }
 

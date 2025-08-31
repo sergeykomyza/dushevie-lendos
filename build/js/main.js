@@ -1,22 +1,19 @@
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ПРОКРУТКА, ШАПКА
-// document.addEventListener('DOMContentLoaded', function () {
-//     // СКРОЛЛ К НУЖНОЙ СЕКЦИИ ПО КЛИКУ НА ПУНКТАХ МЕНЮ
-//     $('.menu__link').click(function () {
-//         var scroll_elem = $(this).attr('href');
-//         $('html, body').animate({
-//             scrollTop: $(scroll_elem).offset().top
-//         }, 1000);
-//     });
-//     // ДОБАВЛЯЕМ АКТИВНЫЙ КЛАСС ШАПКЕ
-//     function headerActiveToggle() {
-//         const scrollSize = window.pageYOffset
-//         scrollSize > 1 ? header.classList.add('active') : header.classList.remove('active')
-//     }
-//     window.addEventListener('load', headerActiveToggle) // ПРИ ПЕРЕЗАГРУЗКЕ СТРАНИЦЫ ЕСЛИ СТРАНИЦА УЖЕ ПРОСКРОЛЛЕНА
-//     window.addEventListener('scroll', headerActiveToggle) // ПРИ СКРОЛЛЕ
-// });
+const scroll = () => {
+    const items = document.querySelectorAll('.js-scroll')
+    items.forEach(item => {
+        item.addEventListener('click', function(e){
+            e.preventDefault()
+            const targetName = this.getAttribute('href')
+            window.scrollBy({
+                top: document.querySelector(targetName).getBoundingClientRect().top, 
+                behavior: "smooth" 
+            });
+        })
+    })
+}
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ МАСКА ДЛЯ ИНПУТОВ (https://github.com/RobinHerbots/Inputmask)
 const inputMask = () => {
@@ -82,8 +79,6 @@ const sliders = () => {
 const accordeon = () => {
     document.querySelector('.faq__box').addEventListener('click', (e) => {
         const item = e.target.closest('.faq__item')
-        const btn = item.querySelector('.faq__button')
-        const body = item.querySelector('.faq__contentbox')
         if(item){
             item.classList.toggle('is-active')
         }
@@ -91,6 +86,7 @@ const accordeon = () => {
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+scroll()
 sliders()
 inputMask()
 accordeon()

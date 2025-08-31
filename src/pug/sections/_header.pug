@@ -2,11 +2,11 @@ include ./../mixins/_mixin.pug
 
 -
   const menu = [
-    {title: 'Каталог',   link: '#'},
-    {title: 'Портфолио', link: '#'},
-    {title: 'Материалы', link: '#'},
-    {title: 'Вопросы',   link: '#'},
-    {title: 'Контакты',  link: '#'},
+    {title: 'Каталог',   link: '#catalog'},
+    {title: 'Портфолио', link: '#cases'},
+    {title: 'Отзывы', link: '#reviews'},
+    {title: 'Вопросы',   link: '#faq'},
+    {title: 'Контакты',  link: '#contacts'},
   ]
 
 header.header
@@ -19,7 +19,7 @@ header.header
         ul.header-menu 
           each item in menu
             li.header-menu__item 
-              a.header-menu__link(href=item.link)= item.title 
+              a.header-menu__link.js-scroll(href=item.link)= item.title 
       .header-contacts
         a.header-contacts__link(href="#")
           img(src="img/icons/icon-wh.png", alt="whatsapp") 
