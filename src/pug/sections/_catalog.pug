@@ -26,5 +26,5 @@ section.catalog#catalog
             .product__info
               h6.product__name= item.name 
               span.product__price от !{item.price} руб
-            button.product__btn
+            button.product__btn(data-popup="popup" data-src="#popup-form")
               img(src="img/icons/icon-cart.png", alt="icon-cart")

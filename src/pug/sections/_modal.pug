@@ -1,0 +1,63 @@
+#popup-form.popup-form.popup
+  .popup__body.popup-form__body.animate__animated
+
+    button.popup-close.js-popupClose 
+      img(src="img/popup-close.png", alt="popup-close-icon")
+
+    form() 
+
+      h2.popup-form__title Узнайте стоимость
+      .private-data 
+        .popup-form__inputbox 
+          input.popup-form__input(type="text" placeholder="Ваше имя")
+        .popup-form__inputbox 
+          input.popup-form__input.js-maskPhone(type="text" placeholder="Номер телефона")
+
+      h3.popup-form__subtitle Предполагаемый размер душевой:
+      .parameter-data
+        .parameter-data__item 
+          label.popup-form__inputname Ширина #[br] душевой:
+          .popup-form__inputbox.popup-form__inputparam 
+            input.popup-form__input(type="text")
+            span.popup-form__inputval см
+        .parameter-data__item 
+          label.popup-form__inputname Высота #[br] душевой:
+          .popup-form__inputbox.popup-form__inputparam
+            input.popup-form__input(type="text")
+            span.popup-form__inputval см
+        .parameter-data__item 
+          label.popup-form__inputname Глубина #[br] душевой:
+          .popup-form__inputbox.popup-form__inputparam
+            input.popup-form__input(type="text")
+            span.popup-form__inputval см
+        .parameter-data__item 
+          label.popup-form__inputname Тип #[br] душевой:
+          .popup-form__inputbox.popup-form__inputparam
+            select.popup-form__input.popup-form__select()
+              option(value="Угловая") Угловая
+              option(value="Прямая") Прямая
+              option(value="Круглая") Круглая
+            img.popup-form__selecticon(src="img/custom-select.png", alt="custom-select") 
+
+      h3.popup-form__subtitle Остекление и фурнитура:
+      .parameter-data 
+        .parameter-data__item 
+          label.popup-form__inputname Цвет #[br] стекла:
+          .popup-form__inputbox.popup-form__inputparam
+            select.popup-form__input.popup-form__select()
+              option(value="Задымленное") Задымленное
+              option(value="Синее") Синее
+              option(value="Зеленое") Зеленое
+            img.popup-form__selecticon(src="img/custom-select.png", alt="custom-select")
+        .parameter-data__item 
+          label.popup-form__inputname Цвет #[br] фурнитуры:
+          .popup-form__inputbox.popup-form__inputparam
+            select.popup-form__input.popup-form__select()
+              option(value="Золото") Золото
+              option(value="Серебро") Серебро
+              option(value="Агат") Агат
+            img.popup-form__selecticon(src="img/custom-select.png", alt="custom-select")
+
+      button.popup-form__submit
+        | Узнать стоимость
+        img(src="img/arrow-right.png", alt="arrow-right")

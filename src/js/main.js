@@ -85,8 +85,41 @@ const accordeon = () => {
     })
 }
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ POPUP
+const popup = ()=> {
+    const popup = document.querySelectorAll('.popup')
+    const popupBtn = document.querySelectorAll("[data-popup='popup']")
+    popup.forEach(item => {
+      item.addEventListener('click', function(e){
+        let itsBody = e.target == item.querySelector('.popup__body') || item.querySelector('.popup__body').contains(e.target)
+        let itsClose = e.target.closest('.js-popupClose')
+        if(!itsBody || itsClose){
+          item.querySelector('.popup__body').classList.remove('animate__zoomIn')
+          item.querySelector('.popup__body').classList.add('animate__zoomOut')
+          setTimeout(()=> {
+            item.classList.remove('is-open')
+          },500)
+        }
+      })
+    })
+    popupBtn.forEach(item => {
+        item.addEventListener('click', function(e){
+            e.preventDefault()
+            const hrefPopupBtn = item.getAttribute('href') || item.getAttribute('data-src')
+            document.documentElement.classList.add('popup-open')
+            popup.forEach(item => {
+                item.classList.remove('is-open')
+            })
+            document.querySelector(hrefPopupBtn).classList.add('is-open')
+            document.querySelector(hrefPopupBtn).querySelector('.popup__body').classList.add('animate__zoomIn')
+            document.querySelector(hrefPopupBtn).querySelector('.popup__body').classList.remove('animate__zoomOut')
+        })
+    })
+}
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 scroll()
 sliders()
 inputMask()
 accordeon()
+popup()
